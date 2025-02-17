@@ -1,0 +1,20 @@
+id: binance-smart-chain-weak-authentication
+
+info:
+  name: Binance Smart Chain Weak Authentication Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract relies on insecure authentication mechanisms.
+  tags: binance-smart-chain,high
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bmapping\b"
+          - "\bruntime_upgrade\b"
+          - "\bunchecked\b"
+        condition: and

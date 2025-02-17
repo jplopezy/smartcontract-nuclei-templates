@@ -1,0 +1,21 @@
+id: cosmos-sdk-uninitialized-storage
+
+info:
+  name: Cosmos SDK Uninitialized Storage Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract has uninitialized storage variables, which can be hijacked by attackers.
+  tags: cosmos-sdk,low
+
+file:
+  - extensions:
+      - go
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\btransaction\b"
+          - "\bkey\b"
+          - "\blog\b"
+        condition: and

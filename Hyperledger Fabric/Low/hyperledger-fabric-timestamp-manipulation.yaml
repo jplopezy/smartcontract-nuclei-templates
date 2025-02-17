@@ -1,0 +1,21 @@
+id: hyperledger-fabric-timestamp-manipulation
+
+info:
+  name: Hyperledger Fabric Timestamp Manipulation Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract relies on block.timestamp for critical operations, which miners can influence.
+  tags: hyperledger-fabric,low
+
+file:
+  - extensions:
+      - go
+      - js
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bcontract\b"
+          - "\bkey\b"
+          - "\bmapping\b"
+        condition: and

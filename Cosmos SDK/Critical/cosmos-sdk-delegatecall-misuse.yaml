@@ -1,0 +1,21 @@
+id: cosmos-sdk-delegatecall-misuse
+
+info:
+  name: Cosmos SDK Delegatecall Misuse Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract uses delegatecall in an unsafe manner, exposing itself to external execution risks.
+  tags: cosmos-sdk,critical
+
+file:
+  - extensions:
+      - go
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bfunction\b"
+          - "\bsend\b"
+          - "\bemit\b"
+        condition: and

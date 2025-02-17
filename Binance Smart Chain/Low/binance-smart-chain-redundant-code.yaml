@@ -1,0 +1,20 @@
+id: binance-smart-chain-redundant-code
+
+info:
+  name: Binance Smart Chain Redundant Code Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract contains redundant logic, making maintenance difficult.
+  tags: binance-smart-chain,low
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bbalance\b"
+          - "\binvoke\b"
+          - "\bfunction\b"
+        condition: and

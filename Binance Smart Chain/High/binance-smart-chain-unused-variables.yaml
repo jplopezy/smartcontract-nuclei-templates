@@ -1,0 +1,20 @@
+id: binance-smart-chain-unused-variables
+
+info:
+  name: Binance Smart Chain Unused Variables Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract has unused variables, increasing contract size and potential confusion.
+  tags: binance-smart-chain,high
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bbalance\b"
+          - "\bsend\b"
+          - "\bsigner\b"
+        condition: and

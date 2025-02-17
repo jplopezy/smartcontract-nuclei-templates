@@ -1,0 +1,20 @@
+id: tezos-selfdestruct-misuse
+
+info:
+  name: Tezos Selfdestruct Misuse Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract can be destroyed unexpectedly via selfdestruct, leading to asset loss.
+  tags: tezos,critical
+
+file:
+  - extensions:
+      - tz
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bowner\b"
+          - "\binvoke\b"
+          - "\bmsg.sender\b"
+        condition: and

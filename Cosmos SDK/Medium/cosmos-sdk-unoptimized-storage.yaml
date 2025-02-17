@@ -1,0 +1,21 @@
+id: cosmos-sdk-unoptimized-storage
+
+info:
+  name: Cosmos SDK Unoptimized Storage Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract inefficiently manages storage, leading to higher gas costs.
+  tags: cosmos-sdk,medium
+
+file:
+  - extensions:
+      - go
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bruntime_upgrade\b"
+          - "\bsend\b"
+          - "\bfunction\b"
+        condition: and

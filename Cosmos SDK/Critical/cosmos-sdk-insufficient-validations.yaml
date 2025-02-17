@@ -1,0 +1,21 @@
+id: cosmos-sdk-insufficient-validations
+
+info:
+  name: Cosmos SDK Insufficient Validations Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract does not validate inputs properly, leading to potential exploits.
+  tags: cosmos-sdk,critical
+
+file:
+  - extensions:
+      - go
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bkey\b"
+          - "\bowner\b"
+          - "\btrait\b"
+        condition: and

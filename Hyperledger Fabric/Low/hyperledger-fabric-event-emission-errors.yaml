@@ -1,0 +1,21 @@
+id: hyperledger-fabric-event-emission-errors
+
+info:
+  name: Hyperledger Fabric Event Emission Errors Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract fails to emit proper events, reducing auditability and transparency.
+  tags: hyperledger-fabric,low
+
+file:
+  - extensions:
+      - go
+      - js
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bstorage\b"
+          - "\bcontract\b"
+          - "\blog\b"
+        condition: and

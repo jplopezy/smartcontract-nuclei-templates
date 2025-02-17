@@ -1,0 +1,21 @@
+id: hyperledger-fabric-uninitialized-storage
+
+info:
+  name: Hyperledger Fabric Uninitialized Storage Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract has uninitialized storage variables, which can be hijacked by attackers.
+  tags: hyperledger-fabric,critical
+
+file:
+  - extensions:
+      - go
+      - js
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bruntime_upgrade\b"
+          - "\bkey\b"
+          - "\bcontract\b"
+        condition: and

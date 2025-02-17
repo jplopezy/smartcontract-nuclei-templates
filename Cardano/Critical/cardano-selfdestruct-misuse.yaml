@@ -1,0 +1,20 @@
+id: cardano-selfdestruct-misuse
+
+info:
+  name: Cardano Selfdestruct Misuse Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract can be destroyed unexpectedly via selfdestruct, leading to asset loss.
+  tags: cardano,critical
+
+file:
+  - extensions:
+      - hs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bfunction\b"
+          - "\bkey\b"
+          - "\bdispatch\b"
+        condition: and

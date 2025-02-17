@@ -1,0 +1,20 @@
+id: binance-smart-chain-selfdestruct-misuse
+
+info:
+  name: Binance Smart Chain Selfdestruct Misuse Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract can be destroyed unexpectedly via selfdestruct, leading to asset loss.
+  tags: binance-smart-chain,high
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bunchecked\b"
+          - "\bbalance\b"
+          - "\bmapping\b"
+        condition: and

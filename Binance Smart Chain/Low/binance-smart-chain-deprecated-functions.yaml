@@ -1,0 +1,20 @@
+id: binance-smart-chain-deprecated-functions
+
+info:
+  name: Binance Smart Chain Deprecated Functions Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract uses deprecated Solidity functions that may be insecure.
+  tags: binance-smart-chain,low
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bcontract\b"
+          - "\brequire\b"
+          - "\bmsg.sender\b"
+        condition: and

@@ -1,0 +1,21 @@
+id: hyperledger-fabric-delegatecall-misuse
+
+info:
+  name: Hyperledger Fabric Delegatecall Misuse Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract uses delegatecall in an unsafe manner, exposing itself to external execution risks.
+  tags: hyperledger-fabric,low
+
+file:
+  - extensions:
+      - go
+      - js
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bruntime_upgrade\b"
+          - "\bsigner\b"
+          - "\bunchecked\b"
+        condition: and

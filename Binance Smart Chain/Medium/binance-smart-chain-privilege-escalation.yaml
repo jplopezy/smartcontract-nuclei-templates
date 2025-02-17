@@ -1,0 +1,20 @@
+id: binance-smart-chain-privilege-escalation
+
+info:
+  name: Binance Smart Chain Privilege Escalation Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract improperly grants administrative privileges.
+  tags: binance-smart-chain,medium
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bsend\b"
+          - "\bowner\b"
+          - "\bcontract\b"
+        condition: and

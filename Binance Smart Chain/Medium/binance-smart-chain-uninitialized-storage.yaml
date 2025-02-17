@@ -1,0 +1,20 @@
+id: binance-smart-chain-uninitialized-storage
+
+info:
+  name: Binance Smart Chain Uninitialized Storage Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract has uninitialized storage variables, which can be hijacked by attackers.
+  tags: binance-smart-chain,medium
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bmsg.sender\b"
+          - "\bsigner\b"
+          - "\bowner\b"
+        condition: and

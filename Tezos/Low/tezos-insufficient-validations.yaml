@@ -1,0 +1,20 @@
+id: tezos-insufficient-validations
+
+info:
+  name: Tezos Insufficient Validations Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract does not validate inputs properly, leading to potential exploits.
+  tags: tezos,low
+
+file:
+  - extensions:
+      - tz
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bstorage\b"
+          - "\bunchecked\b"
+          - "\bemit\b"
+        condition: and

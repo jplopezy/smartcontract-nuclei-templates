@@ -1,0 +1,20 @@
+id: tezos-weak-authentication
+
+info:
+  name: Tezos Weak Authentication Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract relies on insecure authentication mechanisms.
+  tags: tezos,low
+
+file:
+  - extensions:
+      - tz
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bcontract\b"
+          - "\bkey\b"
+          - "\btrait\b"
+        condition: and

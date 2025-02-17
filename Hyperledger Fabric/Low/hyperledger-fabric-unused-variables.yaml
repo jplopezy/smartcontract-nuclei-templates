@@ -1,0 +1,21 @@
+id: hyperledger-fabric-unused-variables
+
+info:
+  name: Hyperledger Fabric Unused Variables Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract has unused variables, increasing contract size and potential confusion.
+  tags: hyperledger-fabric,low
+
+file:
+  - extensions:
+      - go
+      - js
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bdispatch\b"
+          - "\btransaction\b"
+          - "\bruntime_upgrade\b"
+        condition: and

@@ -1,0 +1,20 @@
+id: tezos-unoptimized-storage
+
+info:
+  name: Tezos Unoptimized Storage Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract inefficiently manages storage, leading to higher gas costs.
+  tags: tezos,medium
+
+file:
+  - extensions:
+      - tz
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bsigner\b"
+          - "\bruntime_upgrade\b"
+          - "\binvoke\b"
+        condition: and

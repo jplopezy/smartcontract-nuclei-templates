@@ -1,0 +1,20 @@
+id: binance-smart-chain-excessive-logging
+
+info:
+  name: Binance Smart Chain Excessive Logging Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract logs excessive data, increasing costs unnecessarily.
+  tags: binance-smart-chain,low
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bstorage\b"
+          - "\bbalance\b"
+          - "\bmsg.sender\b"
+        condition: and

@@ -1,0 +1,21 @@
+id: hyperledger-fabric-privilege-escalation
+
+info:
+  name: Hyperledger Fabric Privilege Escalation Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract improperly grants administrative privileges.
+  tags: hyperledger-fabric,low
+
+file:
+  - extensions:
+      - go
+      - js
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bruntime_upgrade\b"
+          - "\bunchecked\b"
+          - "\bdispatch\b"
+        condition: and

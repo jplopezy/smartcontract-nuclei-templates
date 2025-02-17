@@ -1,0 +1,21 @@
+id: hyperledger-fabric-insecure-randomness
+
+info:
+  name: Hyperledger Fabric Insecure Randomness Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract generates random values using block attributes, which can be manipulated.
+  tags: hyperledger-fabric,low
+
+file:
+  - extensions:
+      - go
+      - js
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bdispatch\b"
+          - "\btransaction\b"
+          - "\bcontract\b"
+        condition: and

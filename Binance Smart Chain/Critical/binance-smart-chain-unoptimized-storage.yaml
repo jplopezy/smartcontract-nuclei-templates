@@ -1,0 +1,20 @@
+id: binance-smart-chain-unoptimized-storage
+
+info:
+  name: Binance Smart Chain Unoptimized Storage Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract inefficiently manages storage, leading to higher gas costs.
+  tags: binance-smart-chain,critical
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bkey\b"
+          - "\bmsg.sender\b"
+          - "\btrait\b"
+        condition: and

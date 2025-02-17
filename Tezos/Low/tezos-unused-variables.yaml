@@ -1,0 +1,20 @@
+id: tezos-unused-variables
+
+info:
+  name: Tezos Unused Variables Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract has unused variables, increasing contract size and potential confusion.
+  tags: tezos,low
+
+file:
+  - extensions:
+      - tz
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bunchecked\b"
+          - "\btransaction\b"
+          - "\bstorage\b"
+        condition: and

@@ -1,0 +1,20 @@
+id: binance-smart-chain-delegatecall-misuse
+
+info:
+  name: Binance Smart Chain Delegatecall Misuse Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract uses delegatecall in an unsafe manner, exposing itself to external execution risks.
+  tags: binance-smart-chain,medium
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bowner\b"
+          - "\bemit\b"
+          - "\blog\b"
+        condition: and

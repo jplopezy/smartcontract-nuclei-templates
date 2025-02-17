@@ -1,0 +1,21 @@
+id: hyperledger-fabric-deprecated-functions
+
+info:
+  name: Hyperledger Fabric Deprecated Functions Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract uses deprecated Solidity functions that may be insecure.
+  tags: hyperledger-fabric,medium
+
+file:
+  - extensions:
+      - go
+      - js
+
+    matchers:
+      - type: regex
+        regex:
+          - "\brequire\b"
+          - "\bmsg.sender\b"
+          - "\bunchecked\b"
+        condition: and

@@ -1,0 +1,20 @@
+id: cardano-unchecked-external-calls
+
+info:
+  name: Cardano Unchecked External Calls Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract calls an external address without validating the response, exposing it to attacks.
+  tags: cardano,critical
+
+file:
+  - extensions:
+      - hs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\btransaction\b"
+          - "\blog\b"
+          - "\bowner\b"
+        condition: and

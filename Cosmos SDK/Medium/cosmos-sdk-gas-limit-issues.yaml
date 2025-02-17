@@ -1,0 +1,21 @@
+id: cosmos-sdk-gas-limit-issues
+
+info:
+  name: Cosmos SDK Gas Limit Issues Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract has loops or operations that can exceed the gas limit, leading to failed transactions.
+  tags: cosmos-sdk,medium
+
+file:
+  - extensions:
+      - go
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bmapping\b"
+          - "\binvoke\b"
+          - "\bmsg.sender\b"
+        condition: and

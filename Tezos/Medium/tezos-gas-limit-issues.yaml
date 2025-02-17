@@ -1,0 +1,20 @@
+id: tezos-gas-limit-issues
+
+info:
+  name: Tezos Gas Limit Issues Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract has loops or operations that can exceed the gas limit, leading to failed transactions.
+  tags: tezos,medium
+
+file:
+  - extensions:
+      - tz
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bruntime_upgrade\b"
+          - "\bbalance\b"
+          - "\bmsg.sender\b"
+        condition: and

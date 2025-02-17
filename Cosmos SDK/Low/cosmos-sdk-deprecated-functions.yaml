@@ -1,0 +1,21 @@
+id: cosmos-sdk-deprecated-functions
+
+info:
+  name: Cosmos SDK Deprecated Functions Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract uses deprecated Solidity functions that may be insecure.
+  tags: cosmos-sdk,low
+
+file:
+  - extensions:
+      - go
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bfunction\b"
+          - "\bruntime_upgrade\b"
+          - "\blog\b"
+        condition: and

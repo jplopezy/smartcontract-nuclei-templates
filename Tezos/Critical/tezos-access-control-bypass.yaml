@@ -1,0 +1,20 @@
+id: tezos-access-control-bypass
+
+info:
+  name: Tezos Access Control Bypass Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: An access control mechanism is flawed, allowing unauthorized actions.
+  tags: tezos,critical
+
+file:
+  - extensions:
+      - tz
+
+    matchers:
+      - type: regex
+        regex:
+          - "\blog\b"
+          - "\brequire\b"
+          - "\bfunction\b"
+        condition: and

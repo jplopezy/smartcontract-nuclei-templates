@@ -1,0 +1,20 @@
+id: cardano-integer-overflow
+
+info:
+  name: Cardano Integer Overflow Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract performs arithmetic operations without checking for overflows or underflows.
+  tags: cardano,medium
+
+file:
+  - extensions:
+      - hs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bdispatch\b"
+          - "\blog\b"
+          - "\btransaction\b"
+        condition: and

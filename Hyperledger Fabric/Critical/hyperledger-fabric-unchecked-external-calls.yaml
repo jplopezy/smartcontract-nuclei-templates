@@ -1,0 +1,21 @@
+id: hyperledger-fabric-unchecked-external-calls
+
+info:
+  name: Hyperledger Fabric Unchecked External Calls Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract calls an external address without validating the response, exposing it to attacks.
+  tags: hyperledger-fabric,critical
+
+file:
+  - extensions:
+      - go
+      - js
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bkey\b"
+          - "\bbalance\b"
+          - "\bsend\b"
+        condition: and

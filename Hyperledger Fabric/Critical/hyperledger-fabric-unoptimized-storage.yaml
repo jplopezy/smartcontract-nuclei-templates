@@ -1,0 +1,21 @@
+id: hyperledger-fabric-unoptimized-storage
+
+info:
+  name: Hyperledger Fabric Unoptimized Storage Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract inefficiently manages storage, leading to higher gas costs.
+  tags: hyperledger-fabric,critical
+
+file:
+  - extensions:
+      - go
+      - js
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bkey\b"
+          - "\bbalance\b"
+          - "\brequire\b"
+        condition: and

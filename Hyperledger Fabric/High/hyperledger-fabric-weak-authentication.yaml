@@ -1,0 +1,21 @@
+id: hyperledger-fabric-weak-authentication
+
+info:
+  name: Hyperledger Fabric Weak Authentication Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract relies on insecure authentication mechanisms.
+  tags: hyperledger-fabric,high
+
+file:
+  - extensions:
+      - go
+      - js
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bsend\b"
+          - "\bfunction\b"
+          - "\brequire\b"
+        condition: and

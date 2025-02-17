@@ -1,0 +1,20 @@
+id: cardano-timestamp-manipulation
+
+info:
+  name: Cardano Timestamp Manipulation Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract relies on block.timestamp for critical operations, which miners can influence.
+  tags: cardano,critical
+
+file:
+  - extensions:
+      - hs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bmsg.sender\b"
+          - "\binvoke\b"
+          - "\btransaction\b"
+        condition: and

@@ -1,0 +1,20 @@
+id: tezos-unchecked-external-calls
+
+info:
+  name: Tezos Unchecked External Calls Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract calls an external address without validating the response, exposing it to attacks.
+  tags: tezos,low
+
+file:
+  - extensions:
+      - tz
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bruntime_upgrade\b"
+          - "\bemit\b"
+          - "\blog\b"
+        condition: and

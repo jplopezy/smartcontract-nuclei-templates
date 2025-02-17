@@ -1,0 +1,20 @@
+id: cardano-event-emission-errors
+
+info:
+  name: Cardano Event Emission Errors Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract fails to emit proper events, reducing auditability and transparency.
+  tags: cardano,medium
+
+file:
+  - extensions:
+      - hs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bbalance\b"
+          - "\bruntime_upgrade\b"
+          - "\bdispatch\b"
+        condition: and

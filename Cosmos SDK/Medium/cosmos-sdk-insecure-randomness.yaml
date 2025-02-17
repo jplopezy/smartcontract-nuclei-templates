@@ -1,0 +1,21 @@
+id: cosmos-sdk-insecure-randomness
+
+info:
+  name: Cosmos SDK Insecure Randomness Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract generates random values using block attributes, which can be manipulated.
+  tags: cosmos-sdk,medium
+
+file:
+  - extensions:
+      - go
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bbalance\b"
+          - "\bsigner\b"
+          - "\bsend\b"
+        condition: and

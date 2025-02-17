@@ -1,0 +1,21 @@
+id: cosmos-sdk-selfdestruct-misuse
+
+info:
+  name: Cosmos SDK Selfdestruct Misuse Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract can be destroyed unexpectedly via selfdestruct, leading to asset loss.
+  tags: cosmos-sdk,medium
+
+file:
+  - extensions:
+      - go
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bemit\b"
+          - "\brequire\b"
+          - "\bruntime_upgrade\b"
+        condition: and

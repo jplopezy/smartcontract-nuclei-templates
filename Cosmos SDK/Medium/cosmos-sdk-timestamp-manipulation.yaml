@@ -1,0 +1,21 @@
+id: cosmos-sdk-timestamp-manipulation
+
+info:
+  name: Cosmos SDK Timestamp Manipulation Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract relies on block.timestamp for critical operations, which miners can influence.
+  tags: cosmos-sdk,medium
+
+file:
+  - extensions:
+      - go
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bemit\b"
+          - "\bmsg.sender\b"
+          - "\bkey\b"
+        condition: and

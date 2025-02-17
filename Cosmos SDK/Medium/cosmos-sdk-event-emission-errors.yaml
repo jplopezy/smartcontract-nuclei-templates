@@ -1,0 +1,21 @@
+id: cosmos-sdk-event-emission-errors
+
+info:
+  name: Cosmos SDK Event Emission Errors Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract fails to emit proper events, reducing auditability and transparency.
+  tags: cosmos-sdk,medium
+
+file:
+  - extensions:
+      - go
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bdispatch\b"
+          - "\binvoke\b"
+          - "\bowner\b"
+        condition: and

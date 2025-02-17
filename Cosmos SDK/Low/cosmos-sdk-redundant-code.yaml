@@ -1,0 +1,21 @@
+id: cosmos-sdk-redundant-code
+
+info:
+  name: Cosmos SDK Redundant Code Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract contains redundant logic, making maintenance difficult.
+  tags: cosmos-sdk,low
+
+file:
+  - extensions:
+      - go
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\binvoke\b"
+          - "\blog\b"
+          - "\btrait\b"
+        condition: and

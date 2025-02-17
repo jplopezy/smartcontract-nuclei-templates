@@ -1,0 +1,21 @@
+id: hyperledger-fabric-access-control-bypass
+
+info:
+  name: Hyperledger Fabric Access Control Bypass Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: An access control mechanism is flawed, allowing unauthorized actions.
+  tags: hyperledger-fabric,low
+
+file:
+  - extensions:
+      - go
+      - js
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bfunction\b"
+          - "\bsigner\b"
+          - "\bsend\b"
+        condition: and

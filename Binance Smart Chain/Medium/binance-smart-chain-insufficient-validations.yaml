@@ -1,0 +1,20 @@
+id: binance-smart-chain-insufficient-validations
+
+info:
+  name: Binance Smart Chain Insufficient Validations Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract does not validate inputs properly, leading to potential exploits.
+  tags: binance-smart-chain,medium
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bruntime_upgrade\b"
+          - "\bemit\b"
+          - "\btransaction\b"
+        condition: and

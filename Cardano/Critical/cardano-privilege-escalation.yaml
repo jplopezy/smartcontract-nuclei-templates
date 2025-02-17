@@ -1,0 +1,20 @@
+id: cardano-privilege-escalation
+
+info:
+  name: Cardano Privilege Escalation Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract improperly grants administrative privileges.
+  tags: cardano,critical
+
+file:
+  - extensions:
+      - hs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bunchecked\b"
+          - "\bemit\b"
+          - "\bruntime_upgrade\b"
+        condition: and

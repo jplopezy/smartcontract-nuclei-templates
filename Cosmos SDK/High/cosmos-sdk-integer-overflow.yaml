@@ -1,0 +1,21 @@
+id: cosmos-sdk-integer-overflow
+
+info:
+  name: Cosmos SDK Integer Overflow Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract performs arithmetic operations without checking for overflows or underflows.
+  tags: cosmos-sdk,high
+
+file:
+  - extensions:
+      - go
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bmsg.sender\b"
+          - "\bdispatch\b"
+          - "\bowner\b"
+        condition: and

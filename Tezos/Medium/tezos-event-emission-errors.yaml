@@ -1,0 +1,20 @@
+id: tezos-event-emission-errors
+
+info:
+  name: Tezos Event Emission Errors Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract fails to emit proper events, reducing auditability and transparency.
+  tags: tezos,medium
+
+file:
+  - extensions:
+      - tz
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bmsg.sender\b"
+          - "\bowner\b"
+          - "\bmapping\b"
+        condition: and

@@ -1,0 +1,21 @@
+id: hyperledger-fabric-selfdestruct-misuse
+
+info:
+  name: Hyperledger Fabric Selfdestruct Misuse Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract can be destroyed unexpectedly via selfdestruct, leading to asset loss.
+  tags: hyperledger-fabric,medium
+
+file:
+  - extensions:
+      - go
+      - js
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bemit\b"
+          - "\bowner\b"
+          - "\bmsg.sender\b"
+        condition: and

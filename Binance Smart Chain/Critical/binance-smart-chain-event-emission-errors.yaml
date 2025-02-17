@@ -1,0 +1,20 @@
+id: binance-smart-chain-event-emission-errors
+
+info:
+  name: Binance Smart Chain Event Emission Errors Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract fails to emit proper events, reducing auditability and transparency.
+  tags: binance-smart-chain,critical
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bruntime_upgrade\b"
+          - "\brequire\b"
+          - "\bemit\b"
+        condition: and

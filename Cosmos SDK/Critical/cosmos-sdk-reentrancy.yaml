@@ -1,0 +1,21 @@
+id: cosmos-sdk-reentrancy
+
+info:
+  name: Cosmos SDK Reentrancy Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract allows external calls before updating state, enabling reentrancy attacks.
+  tags: cosmos-sdk,critical
+
+file:
+  - extensions:
+      - go
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bsigner\b"
+          - "\brequire\b"
+          - "\bruntime_upgrade\b"
+        condition: and

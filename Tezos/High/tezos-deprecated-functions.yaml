@@ -1,0 +1,20 @@
+id: tezos-deprecated-functions
+
+info:
+  name: Tezos Deprecated Functions Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract uses deprecated Solidity functions that may be insecure.
+  tags: tezos,high
+
+file:
+  - extensions:
+      - tz
+
+    matchers:
+      - type: regex
+        regex:
+          - "\blog\b"
+          - "\brequire\b"
+          - "\bstorage\b"
+        condition: and

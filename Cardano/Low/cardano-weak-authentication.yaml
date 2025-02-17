@@ -1,0 +1,20 @@
+id: cardano-weak-authentication
+
+info:
+  name: Cardano Weak Authentication Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract relies on insecure authentication mechanisms.
+  tags: cardano,low
+
+file:
+  - extensions:
+      - hs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bkey\b"
+          - "\bmsg.sender\b"
+          - "\blog\b"
+        condition: and

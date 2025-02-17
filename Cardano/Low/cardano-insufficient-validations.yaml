@@ -1,0 +1,20 @@
+id: cardano-insufficient-validations
+
+info:
+  name: Cardano Insufficient Validations Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract does not validate inputs properly, leading to potential exploits.
+  tags: cardano,low
+
+file:
+  - extensions:
+      - hs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bowner\b"
+          - "\btransaction\b"
+          - "\bunchecked\b"
+        condition: and

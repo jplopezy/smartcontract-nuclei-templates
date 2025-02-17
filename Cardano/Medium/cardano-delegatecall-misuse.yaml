@@ -1,0 +1,20 @@
+id: cardano-delegatecall-misuse
+
+info:
+  name: Cardano Delegatecall Misuse Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract uses delegatecall in an unsafe manner, exposing itself to external execution risks.
+  tags: cardano,medium
+
+file:
+  - extensions:
+      - hs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bruntime_upgrade\b"
+          - "\binvoke\b"
+          - "\bcontract\b"
+        condition: and

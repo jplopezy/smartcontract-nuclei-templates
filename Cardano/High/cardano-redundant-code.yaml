@@ -1,0 +1,20 @@
+id: cardano-redundant-code
+
+info:
+  name: Cardano Redundant Code Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract contains redundant logic, making maintenance difficult.
+  tags: cardano,high
+
+file:
+  - extensions:
+      - hs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bunchecked\b"
+          - "\bmapping\b"
+          - "\bstorage\b"
+        condition: and

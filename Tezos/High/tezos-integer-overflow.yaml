@@ -1,0 +1,20 @@
+id: tezos-integer-overflow
+
+info:
+  name: Tezos Integer Overflow Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract performs arithmetic operations without checking for overflows or underflows.
+  tags: tezos,high
+
+file:
+  - extensions:
+      - tz
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bkey\b"
+          - "\bunchecked\b"
+          - "\brequire\b"
+        condition: and
