@@ -1,0 +1,20 @@
+id: cosmos-redundant-code
+
+info:
+  name: Cosmos Redundant Code Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract contains redundant logic, making maintenance difficult.
+  tags: cosmos,critical
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bfunction\b"
+          - "\btransaction\b"
+          - "\bowner\b"
+        condition: and

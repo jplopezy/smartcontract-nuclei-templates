@@ -1,0 +1,20 @@
+id: polkadot-code-style-issues
+
+info:
+  name: Polkadot Code Style Issues Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract has inconsistent formatting or coding style, reducing readability.
+  tags: polkadot,medium
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bstorage\b"
+          - "\bsigner\b"
+          - "\bmapping\b"
+        condition: and

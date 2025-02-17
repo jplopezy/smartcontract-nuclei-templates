@@ -1,0 +1,20 @@
+id: polkadot-selfdestruct-misuse
+
+info:
+  name: Polkadot Selfdestruct Misuse Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract can be destroyed unexpectedly via selfdestruct, leading to asset loss.
+  tags: polkadot,critical
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bmsg.sender\b"
+          - "\bowner\b"
+          - "\bkey\b"
+        condition: and

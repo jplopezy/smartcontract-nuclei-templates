@@ -1,0 +1,20 @@
+id: ethereum-timestamp-manipulation
+
+info:
+  name: Ethereum Timestamp Manipulation Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract relies on block.timestamp for critical operations, which miners can influence.
+  tags: ethereum,low
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bmsg.sender\b"
+          - "\bunchecked\b"
+          - "\btrait\b"
+        condition: and

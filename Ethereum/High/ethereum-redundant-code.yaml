@@ -1,0 +1,20 @@
+id: ethereum-redundant-code
+
+info:
+  name: Ethereum Redundant Code Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract contains redundant logic, making maintenance difficult.
+  tags: ethereum,high
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\blog\b"
+          - "\bmapping\b"
+          - "\bunchecked\b"
+        condition: and

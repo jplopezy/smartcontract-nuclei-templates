@@ -1,0 +1,20 @@
+id: hyperledger-delegatecall-misuse
+
+info:
+  name: Hyperledger Delegatecall Misuse Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract uses delegatecall in an unsafe manner, exposing itself to external execution risks.
+  tags: hyperledger,high
+
+file:
+  - extensions:
+      - go
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bstorage\b"
+          - "\bkey\b"
+          - "\bruntime_upgrade\b"
+        condition: and

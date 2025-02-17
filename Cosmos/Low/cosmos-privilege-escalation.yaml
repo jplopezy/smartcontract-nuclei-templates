@@ -1,0 +1,20 @@
+id: cosmos-privilege-escalation
+
+info:
+  name: Cosmos Privilege Escalation Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract improperly grants administrative privileges.
+  tags: cosmos,low
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bdispatch\b"
+          - "\bmsg.sender\b"
+          - "\btrait\b"
+        condition: and

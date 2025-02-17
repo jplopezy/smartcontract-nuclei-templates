@@ -1,0 +1,20 @@
+id: cosmos-unchecked-external-calls
+
+info:
+  name: Cosmos Unchecked External Calls Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract calls an external address without validating the response, exposing it to attacks.
+  tags: cosmos,high
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bruntime_upgrade\b"
+          - "\bmsg.sender\b"
+          - "\binvoke\b"
+        condition: and

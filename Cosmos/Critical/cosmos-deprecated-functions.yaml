@@ -1,0 +1,20 @@
+id: cosmos-deprecated-functions
+
+info:
+  name: Cosmos Deprecated Functions Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract uses deprecated Solidity functions that may be insecure.
+  tags: cosmos,critical
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bsend\b"
+          - "\bfunction\b"
+          - "\bstorage\b"
+        condition: and

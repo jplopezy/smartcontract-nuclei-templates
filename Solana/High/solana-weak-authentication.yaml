@@ -1,0 +1,20 @@
+id: solana-weak-authentication
+
+info:
+  name: Solana Weak Authentication Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract relies on insecure authentication mechanisms.
+  tags: solana,high
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bbalance\b"
+          - "\brequire\b"
+          - "\bcontract\b"
+        condition: and

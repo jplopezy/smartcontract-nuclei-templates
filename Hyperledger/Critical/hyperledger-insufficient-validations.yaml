@@ -1,0 +1,20 @@
+id: hyperledger-insufficient-validations
+
+info:
+  name: Hyperledger Insufficient Validations Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract does not validate inputs properly, leading to potential exploits.
+  tags: hyperledger,critical
+
+file:
+  - extensions:
+      - go
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bkey\b"
+          - "\blog\b"
+          - "\btrait\b"
+        condition: and

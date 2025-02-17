@@ -1,0 +1,20 @@
+id: solana-reentrancy
+
+info:
+  name: Solana Reentrancy Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract allows external calls before updating state, enabling reentrancy attacks.
+  tags: solana,critical
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bcontract\b"
+          - "\bmapping\b"
+          - "\bsigner\b"
+        condition: and

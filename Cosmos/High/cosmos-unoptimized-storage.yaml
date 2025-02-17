@@ -1,0 +1,20 @@
+id: cosmos-unoptimized-storage
+
+info:
+  name: Cosmos Unoptimized Storage Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract inefficiently manages storage, leading to higher gas costs.
+  tags: cosmos,high
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bmapping\b"
+          - "\bfunction\b"
+          - "\btrait\b"
+        condition: and

@@ -1,0 +1,20 @@
+id: hyperledger-access-control-bypass
+
+info:
+  name: Hyperledger Access Control Bypass Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: An access control mechanism is flawed, allowing unauthorized actions.
+  tags: hyperledger,critical
+
+file:
+  - extensions:
+      - go
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bcontract\b"
+          - "\bfunction\b"
+          - "\bmapping\b"
+        condition: and

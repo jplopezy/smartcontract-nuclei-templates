@@ -1,0 +1,20 @@
+id: ethereum-selfdestruct-misuse
+
+info:
+  name: Ethereum Selfdestruct Misuse Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract can be destroyed unexpectedly via selfdestruct, leading to asset loss.
+  tags: ethereum,high
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\btransaction\b"
+          - "\bcontract\b"
+          - "\bowner\b"
+        condition: and

@@ -1,0 +1,20 @@
+id: solana-unchecked-external-calls
+
+info:
+  name: Solana Unchecked External Calls Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract calls an external address without validating the response, exposing it to attacks.
+  tags: solana,low
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bmsg.sender\b"
+          - "\bfunction\b"
+          - "\blog\b"
+        condition: and

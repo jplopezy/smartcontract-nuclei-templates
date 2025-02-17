@@ -1,0 +1,20 @@
+id: cosmos-timestamp-manipulation
+
+info:
+  name: Cosmos Timestamp Manipulation Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract relies on block.timestamp for critical operations, which miners can influence.
+  tags: cosmos,low
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\binvoke\b"
+          - "\bemit\b"
+          - "\bruntime_upgrade\b"
+        condition: and

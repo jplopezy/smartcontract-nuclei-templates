@@ -1,0 +1,20 @@
+id: cosmos-insecure-randomness
+
+info:
+  name: Cosmos Insecure Randomness Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract generates random values using block attributes, which can be manipulated.
+  tags: cosmos,high
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\brequire\b"
+          - "\bmapping\b"
+          - "\bowner\b"
+        condition: and

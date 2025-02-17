@@ -1,0 +1,20 @@
+id: cosmos-event-emission-errors
+
+info:
+  name: Cosmos Event Emission Errors Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract fails to emit proper events, reducing auditability and transparency.
+  tags: cosmos,high
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bunchecked\b"
+          - "\brequire\b"
+          - "\btrait\b"
+        condition: and

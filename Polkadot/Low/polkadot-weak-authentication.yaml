@@ -1,0 +1,20 @@
+id: polkadot-weak-authentication
+
+info:
+  name: Polkadot Weak Authentication Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract relies on insecure authentication mechanisms.
+  tags: polkadot,low
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bruntime_upgrade\b"
+          - "\btransaction\b"
+          - "\bsigner\b"
+        condition: and

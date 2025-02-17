@@ -1,0 +1,20 @@
+id: solana-delegatecall-misuse
+
+info:
+  name: Solana Delegatecall Misuse Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract uses delegatecall in an unsafe manner, exposing itself to external execution risks.
+  tags: solana,medium
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bmsg.sender\b"
+          - "\bsend\b"
+          - "\bcontract\b"
+        condition: and

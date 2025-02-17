@@ -1,0 +1,20 @@
+id: ethereum-unoptimized-storage
+
+info:
+  name: Ethereum Unoptimized Storage Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract inefficiently manages storage, leading to higher gas costs.
+  tags: ethereum,high
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bbalance\b"
+          - "\btrait\b"
+          - "\btransaction\b"
+        condition: and

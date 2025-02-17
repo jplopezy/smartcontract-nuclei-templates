@@ -1,0 +1,20 @@
+id: cosmos-unused-variables
+
+info:
+  name: Cosmos Unused Variables Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract has unused variables, increasing contract size and potential confusion.
+  tags: cosmos,medium
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bcontract\b"
+          - "\bmsg.sender\b"
+          - "\blog\b"
+        condition: and

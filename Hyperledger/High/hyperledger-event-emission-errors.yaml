@@ -1,0 +1,20 @@
+id: hyperledger-event-emission-errors
+
+info:
+  name: Hyperledger Event Emission Errors Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract fails to emit proper events, reducing auditability and transparency.
+  tags: hyperledger,high
+
+file:
+  - extensions:
+      - go
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bsigner\b"
+          - "\bmsg.sender\b"
+          - "\bmapping\b"
+        condition: and

@@ -1,0 +1,20 @@
+id: solana-event-emission-errors
+
+info:
+  name: Solana Event Emission Errors Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract fails to emit proper events, reducing auditability and transparency.
+  tags: solana,medium
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bmsg.sender\b"
+          - "\bsend\b"
+          - "\binvoke\b"
+        condition: and

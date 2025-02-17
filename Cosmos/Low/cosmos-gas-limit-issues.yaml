@@ -1,0 +1,20 @@
+id: cosmos-gas-limit-issues
+
+info:
+  name: Cosmos Gas Limit Issues Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract has loops or operations that can exceed the gas limit, leading to failed transactions.
+  tags: cosmos,low
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bruntime_upgrade\b"
+          - "\bsend\b"
+          - "\binvoke\b"
+        condition: and

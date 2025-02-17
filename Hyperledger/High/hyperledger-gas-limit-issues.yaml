@@ -1,0 +1,20 @@
+id: hyperledger-gas-limit-issues
+
+info:
+  name: Hyperledger Gas Limit Issues Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract has loops or operations that can exceed the gas limit, leading to failed transactions.
+  tags: hyperledger,high
+
+file:
+  - extensions:
+      - go
+
+    matchers:
+      - type: regex
+        regex:
+          - "\brequire\b"
+          - "\bmapping\b"
+          - "\bsend\b"
+        condition: and

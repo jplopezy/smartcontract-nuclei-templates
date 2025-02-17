@@ -1,0 +1,20 @@
+id: ethereum-deprecated-functions
+
+info:
+  name: Ethereum Deprecated Functions Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract uses deprecated Solidity functions that may be insecure.
+  tags: ethereum,low
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bruntime_upgrade\b"
+          - "\bsend\b"
+          - "\btransaction\b"
+        condition: and

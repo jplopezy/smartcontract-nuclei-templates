@@ -1,0 +1,20 @@
+id: polkadot-unused-variables
+
+info:
+  name: Polkadot Unused Variables Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract has unused variables, increasing contract size and potential confusion.
+  tags: polkadot,low
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bdispatch\b"
+          - "\binvoke\b"
+          - "\btrait\b"
+        condition: and

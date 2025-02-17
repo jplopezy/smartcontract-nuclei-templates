@@ -1,0 +1,20 @@
+id: cosmos-reentrancy
+
+info:
+  name: Cosmos Reentrancy Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract allows external calls before updating state, enabling reentrancy attacks.
+  tags: cosmos,critical
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bbalance\b"
+          - "\bruntime_upgrade\b"
+          - "\bstorage\b"
+        condition: and

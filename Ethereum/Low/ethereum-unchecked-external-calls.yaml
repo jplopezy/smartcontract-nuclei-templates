@@ -1,0 +1,20 @@
+id: ethereum-unchecked-external-calls
+
+info:
+  name: Ethereum Unchecked External Calls Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract calls an external address without validating the response, exposing it to attacks.
+  tags: ethereum,low
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bdispatch\b"
+          - "\bemit\b"
+          - "\bsend\b"
+        condition: and

@@ -1,0 +1,20 @@
+id: hyperledger-weak-authentication
+
+info:
+  name: Hyperledger Weak Authentication Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract relies on insecure authentication mechanisms.
+  tags: hyperledger,critical
+
+file:
+  - extensions:
+      - go
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bmsg.sender\b"
+          - "\bsigner\b"
+          - "\blog\b"
+        condition: and

@@ -1,0 +1,20 @@
+id: solana-uninitialized-storage
+
+info:
+  name: Solana Uninitialized Storage Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract has uninitialized storage variables, which can be hijacked by attackers.
+  tags: solana,high
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\binvoke\b"
+          - "\brequire\b"
+          - "\bsigner\b"
+        condition: and

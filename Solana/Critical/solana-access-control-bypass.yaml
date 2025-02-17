@@ -1,0 +1,20 @@
+id: solana-access-control-bypass
+
+info:
+  name: Solana Access Control Bypass Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: An access control mechanism is flawed, allowing unauthorized actions.
+  tags: solana,critical
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bbalance\b"
+          - "\bunchecked\b"
+          - "\brequire\b"
+        condition: and

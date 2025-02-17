@@ -1,0 +1,20 @@
+id: hyperledger-deprecated-functions
+
+info:
+  name: Hyperledger Deprecated Functions Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract uses deprecated Solidity functions that may be insecure.
+  tags: hyperledger,high
+
+file:
+  - extensions:
+      - go
+
+    matchers:
+      - type: regex
+        regex:
+          - "\blog\b"
+          - "\bbalance\b"
+          - "\brequire\b"
+        condition: and

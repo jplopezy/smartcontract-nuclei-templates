@@ -1,0 +1,20 @@
+id: solana-insufficient-validations
+
+info:
+  name: Solana Insufficient Validations Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract does not validate inputs properly, leading to potential exploits.
+  tags: solana,high
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bmsg.sender\b"
+          - "\bstorage\b"
+          - "\bfunction\b"
+        condition: and

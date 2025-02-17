@@ -1,0 +1,20 @@
+id: solana-privilege-escalation
+
+info:
+  name: Solana Privilege Escalation Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract improperly grants administrative privileges.
+  tags: solana,low
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bbalance\b"
+          - "\bstorage\b"
+          - "\bdispatch\b"
+        condition: and

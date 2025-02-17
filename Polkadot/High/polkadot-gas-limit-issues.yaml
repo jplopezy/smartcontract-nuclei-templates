@@ -1,0 +1,20 @@
+id: polkadot-gas-limit-issues
+
+info:
+  name: Polkadot Gas Limit Issues Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract has loops or operations that can exceed the gas limit, leading to failed transactions.
+  tags: polkadot,high
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bowner\b"
+          - "\bruntime_upgrade\b"
+          - "\bsigner\b"
+        condition: and

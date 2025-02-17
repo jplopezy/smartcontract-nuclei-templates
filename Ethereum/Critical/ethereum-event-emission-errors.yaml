@@ -1,0 +1,20 @@
+id: ethereum-event-emission-errors
+
+info:
+  name: Ethereum Event Emission Errors Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Critical
+  description: A contract fails to emit proper events, reducing auditability and transparency.
+  tags: ethereum,critical
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bkey\b"
+          - "\bruntime_upgrade\b"
+          - "\bunchecked\b"
+        condition: and

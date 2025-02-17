@@ -1,0 +1,20 @@
+id: cosmos-uninitialized-storage
+
+info:
+  name: Cosmos Uninitialized Storage Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: High
+  description: A contract has uninitialized storage variables, which can be hijacked by attackers.
+  tags: cosmos,high
+
+file:
+  - extensions:
+      - rs
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bowner\b"
+          - "\bemit\b"
+          - "\bmsg.sender\b"
+        condition: and

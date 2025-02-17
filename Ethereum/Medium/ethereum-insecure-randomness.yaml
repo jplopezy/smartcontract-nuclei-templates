@@ -1,0 +1,20 @@
+id: ethereum-insecure-randomness
+
+info:
+  name: Ethereum Insecure Randomness Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Medium
+  description: A contract generates random values using block attributes, which can be manipulated.
+  tags: ethereum,medium
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\bcontract\b"
+          - "\bkey\b"
+          - "\bruntime_upgrade\b"
+        condition: and

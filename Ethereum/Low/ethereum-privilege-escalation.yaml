@@ -1,0 +1,20 @@
+id: ethereum-privilege-escalation
+
+info:
+  name: Ethereum Privilege Escalation Vulnerability
+  author: Juan Pablo Lopez Yacubian
+  severity: Low
+  description: A contract improperly grants administrative privileges.
+  tags: ethereum,low
+
+file:
+  - extensions:
+      - sol
+
+    matchers:
+      - type: regex
+        regex:
+          - "\btransaction\b"
+          - "\bdispatch\b"
+          - "\bunchecked\b"
+        condition: and
