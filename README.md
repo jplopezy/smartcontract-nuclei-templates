@@ -49,9 +49,6 @@ These templates **are designed to assist security researchers and developers** i
 - ✅ **Regex-based matchers** to reduce false positives.
 - ✅ **Optimized file structure** with organized categories by severity and blockchain.
 - ✅ **Custom tags** to allow selective execution of templates.
-- ✅ **Scripts for automation**:
-  - `update.sh` → Automatically updates Nuclei templates.
-  - `run_tests.sh` → Runs scans against known vulnerable contracts.
 
 ## 💬 Feedback & Contributions
 
