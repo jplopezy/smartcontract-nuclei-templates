@@ -1,59 +1,47 @@
-# Smart Contract Security Templates for Nuclei
+# Nuclei Smart Contract Source Review
 
-This repository provides **extensive security scanning templates** for **smart contracts** using **Nuclei**. Inspired by [Optiv's Mobile Nuclei Templates](https://github.com/optiv/mobile-nuclei-templates), these templates are designed to identify vulnerabilities in **Ethereum, Solana, Hyperledger, Cosmos, and Polkadot** smart contracts.
+This repository collects **heuristic file-protocol patterns** for reviewing Solidity, Solana Rust and other smart-contract-related source code. It is not a smart-contract auditor or a substitute for Slither, semgrep, Anchor-specific analysis, manual review, or dynamic tests.
 
-## 🛠 How to Use
+## Verified additions (2026)
 
-To execute a scan, **Nuclei** should be run with the following command:
+The new `Ethereum/Review/` and `Solana/Review/` templates are deliberately marked **info**. A match means **inspect this code**, not that the code is exploitable.
+
+- `ethereum-tx-origin-authorization-review` — explicit `tx.origin` comparisons in Solidity `require` statements.
+- `ethereum-ether-call-before-state-write-review` — candidate value transfer before a nearby balance write.
+- `ethereum-discarded-low-level-call-review` — discarded `.call`, `.delegatecall`, or `.staticcall` results on a standalone statement.
+- `solana-unchecked-account-data-review` — explicit unchecked deserialization calls in Rust.
+
+The repository's older severity-labeled templates are *legacy unvalidated regex heuristics* and may be overly broad, incomplete or contain regex/YAML syntax defects. **Do not treat their assigned severities as confirmed vulnerabilities.** Their labels require a separate audit before production use.
+
+## Usage
+
+Install ProjectDiscovery Nuclei, then validate before scanning:
 
 ```sh
-nuclei.exe -t templates/ -u test.sol -file
+nuclei -validate -t Ethereum/Review/ -t Solana/Review/
 ```
 
-- `-t templates/` ensures that all the templates in the directory are used.
-- `-u test.sol` specifies the target smart contract file.
-- `-file` enables scanning of **local files** instead of URLs.
+For a repository or directory of **your own or authorized code**, use the file protocol:
 
-## 🔍 What Is Detected?
+```sh
+nuclei -t Ethereum/Review/ -t Solana/Review/ -target ./authorized-contracts/
+```
 
-The templates cover a **wide range of smart contract vulnerabilities**, categorized as follows:
+The `file` protocol operates on local files and filters by `.sol` and `.rs`. A Solidity filename is a local path, not an HTTP URL. Avoid passing secrets or private client code to external services.
 
-- 🛑 **Critical Issues**: Reentrancy attacks, Privilege escalation, Delegatecall misuse, Access control bypass.
-- ⚠️ **High Severity**: Integer overflow, Insecure randomness, Unchecked external calls, Weak authentication.
-- 🟡 **Medium Severity**: Gas limit issues, Event emission errors, Uninitialized storage.
-- 🔵 **Low Severity**: Unused variables, Deprecated functions, Unoptimized storage.
+## Offline pattern tests
 
-Each template explicitly defines the **blockchain-specific file extensions**:
+```sh
+python3 -m pip install pyyaml
+python3 -m unittest discover -s tests -v
+```
 
-| **Blockchain** | **Language** | **Extension** |
-|--------------|------------|-------------|
-| **Ethereum** | Solidity | `.sol` |
-| **Binance Smart Chain** | Solidity | `.sol` |
-| **Solana** | Rust | `.rs` |
-| **Hyperledger Fabric** | Go / JavaScript | `.go` / `.js` |
-| **Cosmos SDK** | Go / Rust | `.go` / `.rs` |
-| **Polkadot (Substrate)** | Rust | `.rs` |
-| **Tezos** | Michelson | `.tz` |
-| **Cardano** | Plutus (Haskell) | `.hs` |
+These tests validate YAML structure and Python regular-expression behavior on synthetic positives and negatives; they are **not a substitute** for `nuclei -validate` and an integration run with a supported Nuclei version.
 
-## 📌 Important Disclaimer
+## Authoring guidelines
 
-These templates **are designed to assist security researchers and developers** in identifying vulnerabilities. However:
-
-- **False positives may occur**, and manual validation is always recommended.
-- **Security findings should be reviewed carefully** before reporting or remediating issues.
-- If **an error or unexpected behavior** is encountered, feedback is greatly appreciated.
-
-## 🛠 Additional Features & Improvements
-
-- ✅ **Regex-based matchers** to reduce false positives.
-- ✅ **Optimized file structure** with organized categories by severity and blockchain.
-- ✅ **Custom tags** to allow selective execution of templates.
-
-## 💬 Feedback & Contributions
-
-- If a **bug, false positive, or an issue with detection** is found, please let us know.
-- Contributions to improve accuracy or expand the templates are always welcome.
-
-🔒 **Stay secure and happy testing!**
-
+- Quote regex patterns with **single-quoted YAML strings** to avoid invalid `\\` escapes.
+- Use extensions with leading periods, e.g. `.sol` or `.rs`.
+- Use `info` for syntactic indicators and raise severity only after evidence supports impact.
+- Include both positive and negative fixtures to reduce false positives.
+- Do not label mere usage of a security API as proof of missing authorization checks.

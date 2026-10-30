@@ -1,0 +1,16 @@
+id: ethereum-ether-call-before-state-write-review
+
+info:
+  name: Solidity Ether Call Before State Update - Manual Review
+  author: jplopezy
+  severity: info
+  description: Identifies a potential checks-effects-interactions ordering violation where a value-bearing call precedes a nearby balance modification. Requires function-level review.
+  tags: solidity,ethereum,source-review,reentrancy
+
+file:
+  - extensions:
+      - .sol
+    matchers:
+      - type: regex
+        regex:
+          - '(?s)\.call\s*\{\s*value\s*:\s*[^}]+\}\s*\([^;]{0,200}\)\s*;.{0,500}?\b(?:balances?|deposits?)\s*\[[^\]]+\]\s*(?:-=|=)'

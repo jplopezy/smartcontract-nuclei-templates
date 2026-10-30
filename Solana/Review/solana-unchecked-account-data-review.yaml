@@ -1,0 +1,18 @@
+id: solana-unchecked-account-data-review
+
+info:
+  name: Solana Unchecked Account Deserialization - Manual Review
+  author: jplopezy
+  severity: info
+  description: Identifies use of unchecked account deserialization APIs. Review surrounding ownership, discriminator, and signer validation; a match alone is not a vulnerability.
+  tags: solana,rust,source-review,account-validation
+
+file:
+  - extensions:
+      - .rs
+    matchers:
+      - type: regex
+        regex:
+          - '\btry_deserialize_unchecked\s*\('
+          - '\btry_from_unchecked\s*\('
+        condition: or
