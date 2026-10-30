@@ -1,0 +1,16 @@
+id: ethereum-discarded-low-level-call-review
+
+info:
+  name: Solidity Discarded Low-Level Call Result - Manual Review
+  author: jplopezy
+  severity: info
+  description: Potentially discarded low-level call return value. The regex cannot prove whether failure handling exists elsewhere.
+  tags: solidity,ethereum,source-review,low-level-call
+
+file:
+  - extensions:
+      - .sol
+    matchers:
+      - type: regex
+        regex:
+          - '(?m)^\s*(?:[A-Za-z_]\w*|address\s*\([^;\n]+\))\s*\.\s*(?:call|delegatecall|staticcall)\s*(?:\{[^;\n]+\})?\s*\([^;\n]*\)\s*;'

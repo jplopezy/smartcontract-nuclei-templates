@@ -1,0 +1,18 @@
+id: ethereum-tx-origin-authorization-review
+
+info:
+  name: Solidity tx.origin Authorization - Manual Review
+  author: jplopezy
+  severity: info
+  description: Detects tx.origin used in a comparison or require statement. Verify whether it is involved in an authorization decision; a match is not proof of exploitation.
+  tags: solidity,ethereum,source-review,authorization
+
+file:
+  - extensions:
+      - .sol
+    matchers:
+      - type: regex
+        regex:
+          - '(?m)\brequire\s*\([^;\n]*\btx\.origin\b\s*(?:==|!=)'
+          - '(?m)\brequire\s*\([^;\n]*(?:==|!=)\s*\btx\.origin\b'
+        condition: or
